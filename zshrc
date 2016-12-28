@@ -5,6 +5,7 @@ export LANG=en_US.UTF-8
 
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME='robbyrussell'
+#ZSH_THEME='agnoster'
 CASE_SENSITIVE=true
 COMPLETION_WAITING_DOTS=true
 
@@ -57,23 +58,29 @@ compdef _gradlew_tasks gw
 # Allow Ctrl-s in vim
 stty -ixon
 
-export _Z_DATA=$HOME/.z/z-data
-[[ -s $HOME/.z/z.sh ]] && . $HOME/.z/z.sh
+#export _Z_DATA=$HOME/.z/z-data
+#[[ -s $HOME/.z/z.sh ]] && . $HOME/.z/z.sh
 
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
+#[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 
-[[ -s /usr/local/bin/virtualenvwrapper.sh ]] && . /usr/local/bin/virtualenvwrapper.sh
+#[[ -s /usr/local/bin/virtualenvwrapper.sh ]] && . /usr/local/bin/virtualenvwrapper.sh
 
-export PATH=$PATH:$HOME/.rvm/bin
-[[ -s $HOME/.rvm/scripts/rvm ]] && . $HOME/.rvm/scripts/rvm
+#export PATH=$PATH:$HOME/.rvm/bin
+#[[ -s $HOME/.rvm/scripts/rvm ]] && . $HOME/.rvm/scripts/rvm
 
 
- [ -r "$HOME/.smartcd_config" ] && ( [ -n $BASH_VERSION ] || [ -n $ZSH_VERSION ] ) && source ~/.smartcd_config
- export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/
- export PATH=/usr/local/sbin:$PATH
+ #[ -r "$HOME/.smartcd_config" ] && ( [ -n $BASH_VERSION ] || [ -n $ZSH_VERSION ] ) && source ~/.smartcd_config
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk/
+#export JAVA_HOME=/opt/jdk1.7.0_79/
+export PATH=$JAVA_HOME/bin:$PATH
 
- [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
+# [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
 
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/rvallejo/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+#export DOCKER_HOST=tcp://192.168.59.103:2376
+#export DOCKER_CERT_PATH=/Users/rvallejo/.boot2docker/certs/boot2docker-vm
+#export DOCKER_TLS_VERIFY=1
+export VAGRANT_DEFAULT_PROVIDER=virtualbox
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+export SONAR_TOKEN=1778599a4bac7864a081bd28259eebe30d2b7107
