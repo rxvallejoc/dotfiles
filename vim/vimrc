@@ -16,7 +16,7 @@ set shiftwidth=2
 set autoindent
 set smartindent
 set cursorline
-set hlsearch
+set hidden
 set incsearch
 set ignorecase
 set smartcase
@@ -28,7 +28,7 @@ set directory^=~/.vim/_temp//
 
 " Older versions don't support colorcolumn
 if exists('+colorcolumn')
-  set colorcolumn=80
+  set colorcolumn=100
 endif
 
 " Auto reload files
@@ -53,9 +53,9 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 " Personal key bindings and commands.
-map <C-q> :q<CR>
-imap <C-q> <Esc>:q<CR>
-map <C-n> :NERDTreeToggle<CR>
+nmap <C-q> :q<CR>
+nmap <C-q> <Esc>:q<CR>
+nmap <C-n> :NERDTreeToggle<CR>
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>
@@ -117,7 +117,9 @@ noremap <silent> k gk
 noremap <silent> j gj
 
 " Set default colorscheme.
-colorscheme monokai
+set background=dark
+let base16colorspace=256
+"colorscheme base16-default
 
 " Vim-gitgutter config
 let g:gitgutter_sign_column_always = 1
@@ -159,7 +161,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.space = "\ua0"
 let g:airline_powerline_fonts = 1
-let g:airline_theme = "powerlineish"
+let g:airline_theme = "base16"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
