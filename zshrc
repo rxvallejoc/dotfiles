@@ -45,5 +45,5 @@ alias gw='./gradlew'
 # Allow Ctrl-s in vim
 stty -ixon
 
-export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-8.b14.fc25.x86_64
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
