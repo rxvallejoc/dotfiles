@@ -47,34 +47,26 @@ PROMPT+='%B%F{green}%n%F{green}:%F{blue}%(3~|…|)%2~%F{green} *-> %b%f'
 
 unsetopt auto_name_dirs
 
-#Alias to start emacs in terminal window
-alias emacs='emacs -nw'
 
 #Java export /Library/Java/JavaVirtualMachines/
-export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+#export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
-export PATH=$JAVA_HOME/bin:$PATH
+#export PATH=$JAVA_HOME/bin:$PATH
 
 #Terminal Color
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 alias ls='ls -GFh'
 
-
-#Node Version Manager installed with brew install nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
-
 # Load tmux at the beginning
 if [ "$TMUX" = "" ]; then tmux; fi
 
 #Go
-export GOPATH=$HOME/go-workspace # don't forget to change your path correctly!
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
-export PATH="/usr/local/sbin:$PATH"
+#export GOPATH=$HOME/go-workspace # don't forget to change your path correctly!
+#export GOROOT=/usr/local/opt/go/libexec
+#export PATH=$PATH:$GOPATH/bin
+#export PATH=$PATH:$GOROOT/bin
+#export PATH="/usr/local/sbin:$PATH"
 
 #Aliases
 
@@ -98,7 +90,8 @@ alias kcc='kubectl config use-context'
 eval "$(direnv hook zsh)"
 
 #brew install zsh-autosuggestions
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-autosuggestion/zsh-autosuggestions.zsh
 
 #brew tap sambadevi/powerlevel9k
 #brew install powerlevel9ksource /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
@@ -121,21 +114,30 @@ then
   alias pip='pip3'
 fi
 
-#Alias for open mac vim outside terminal
-alias mvim="open -a MacVim.app $1"
-
 #brew install fzf 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 
 #kubectl autocomplate
-[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
-complete -F __start_kubectl k
 
 #Temporal Kubeconfig
-export KUBECONFIG=/Users/rvallejo/.kube/config:/Users/rvallejo/.kube/config.sandbox:/Users/rvallejo/.kube/config.qa:/Users/rvallejo/.kube/config.preview:/Users/rvallejo/.kube/config.mapi:/Users/rvallejo/.kube/config.nonprod
+#export KUBECONFIG=/Users/rvallejo/.kube/config:/Users/rvallejo/.kube/config.sandbox:/Users/rvallejo/.kube/config.qa:/Users/rvallejo/.kube/config.preview:/Users/rvallejo/.kube/config.mapi:/Users/rvallejo/.kube/config.nonprod
 
 #https://krew.sigs.k8s.io/docs/user-guide/setup/install/
-export PATH="${PATH}:${HOME}/.krew/bin"
+#export PATH="${PATH}:${HOME}/.krew/bin"
+
+alias sc='history | fzf +s --tac'
+alias fd=fdfind
+alias find='find . -type f | fzf'
+alias grep='grep --color=auto'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+source <(kubectl completion zsh)
+alias k=kubectl
+complete -F __start_kubectl k
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform

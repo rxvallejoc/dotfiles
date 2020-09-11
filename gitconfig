@@ -1,6 +1,6 @@
 [user]
   name = Rodrigo Vallejo
-  email = rvallejo@thoughtworks.com
+  email = rxvallej@pichincha.com
 
 [includeIf "gitdir:~/thoughtworks/infoarmor/"]
     path = ~/infoarmor/.gitconfig
@@ -27,8 +27,7 @@
   ui = true
 
 [github]
-  user = rxvc
-#user = rvallejoinfoarmor
+  user = rxvcbp
 
 [push]
   default = tracking
